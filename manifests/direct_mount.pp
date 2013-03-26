@@ -1,6 +1,16 @@
-	# autofs::mount { '/media/freenas':
-	# 	map     => 'nfs:freenas.vanutsteen.nl:/mnt/media',
-	# 	options => '-rw',
-	# }
+define autofs::direct_mount(
+	$mountpoint     = $name,
+	$server,
+	$share,
+	$ensure         = present,
+	$fstype,
+	$client_options = undef,
+) {
 
-class autofs::direct_mount { 'asd': }
+   concat::fragment { "/etc/auto.direct_${mountpoint}":
+      target  => '/etc/auto.direct',
+      content => template('autofs/autofs.direct.erb'),
+      order   => 02,
+   }
+
+}
