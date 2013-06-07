@@ -14,12 +14,12 @@
 #
 class autofs::params {
 
-	### Application related parameters
+  ### Application related parameters
 
-	$package_name = $::operatingsystem ? {
-		default => 'autofs'
-	}
+  $package_name = $::operatingsystem ? {
+    default => 'autofs'
+  }
 
-	$enabled = true
+  $enabled = true
 
 }

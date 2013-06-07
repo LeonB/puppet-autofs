@@ -1,6 +1,6 @@
 class autofs::package {
 
-	package  { $autofs::package_name:
-		ensure => $autofs::ensure,
-	}
+  package  { $autofs::package_name:
+    ensure => $autofs::ensure,
+  }
 }

@@ -1,16 +1,16 @@
 define autofs::direct_mount(
-	$mountpoint     = $name,
-	$server,
-	$share,
-	$ensure         = present,
-	$fstype,
-	$client_options = undef,
+  $server,
+  $share,
+  $fstype,
+  $mountpoint     = $name,
+  $ensure         = present,
+  $client_options = undef,
 ) {
 
-   concat::fragment { "/etc/auto.direct_${mountpoint}":
-      target  => '/etc/auto.direct',
-      content => template('autofs/autofs.direct.erb'),
-      order   => 02,
-   }
+  concat::fragment { "/etc/auto.direct_${mountpoint}":
+    target  => '/etc/auto.direct',
+    content => template('autofs/autofs.direct.erb'),
+    order   => 02,
+  }
 
 }
